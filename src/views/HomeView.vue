@@ -1,15 +1,13 @@
 <script setup>
 import { ref } from 'vue'
 
-const name = ref('')
-const age = ref()
-const user = ref()
+const number1 = ref()
+const number2 = ref()
+const media = ref()
 
-function createUser() {
-  user.value = {
-    name: name.value,
-    age: age.value
-  }
+function calcularMedia() {
+  media.value = (number1.value + number2.value) / 2
+
 }
 
 </script>
@@ -17,11 +15,10 @@ function createUser() {
 <template>
   <div>
     <!-- two way data bind -->
-    <input type="text" placeholder="Nome" v-model="name">
-    <input type="number" placeholder="Idade" v-model="age">
-    <button @click="createUser">Cadastrar</button>
-    <p v-show="user?.name">Nome: {{ user?.name }}</p>
-    <p v-if="user?.age">Idade: {{ user?.age }}</p>
+    <input type="number" placeholder="número 1" v-model="number1">
+    <input type="number" placeholder="número 2" v-model="number2">
+    <button @click="calcularMedia">Média</button>
+    <p>{{ media }}</p>
     
   </div>
 </template>
