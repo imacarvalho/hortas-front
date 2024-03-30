@@ -1,26 +1,43 @@
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { ref } from 'vue'
 
-const number1 = ref(0)
-const number2 = ref(0)
-
-const media = computed(() => (number1.value + number2.value) / 2)
-
-watch(() => number1.value, (newValue, oldValue) => {
-  console.log('newValue', newValue)
-  console.log('oldValue', oldValue)
-})
+const persons = ref([
+  {
+    name: "Matheus",
+    age: 29
+  },
+  {
+    name: "Lucas",
+    age: 30
+  },
+  {
+    name: "Ivo",
+    age: 18
+  },
+  {
+    name: "Liliana",
+    age: 20
+  },
+  {
+    name: "Aline",
+    age: 40
+  },
+])
 
 </script>
 
 <template>
   <div>
-    <!-- two way data bind -->
-    <input type="number" placeholder="número 1" v-model="number1">
-    <input type="number" placeholder="número 2" v-model="number2">
-    <!-- <button @click="calcularMedia">Média</button> -->
-
-    <p v-show="media">{{ media }}</p>
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+      </tr>
+      <tr v-for="(person, index) in persons" :key="index">
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
