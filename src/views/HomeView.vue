@@ -1,5 +1,5 @@
 <script setup>
-import Card from '@/components/Card.vue';
+import Tarefa from '@/components/Tarefa.vue';
 import { ref } from 'vue';
 
 const tarefa = ref()
@@ -42,12 +42,8 @@ function excluir(index) {
       <button @click="cadastrar">Cadastrar</button>
     </div>
     <div v-for="(item, index) in listaTarefas" :key="item">
-      {{ item }}
-      <button @click="editar(item, index)">Editar</button>
-      <button @click="excluir(index)">Excluir</button>
-
+      <Tarefa :descricao-tarefa="item" @editar="editar(item, index)" @excluir="excluir(index)" />
     </div>
-
   </div>
 </template>
 
