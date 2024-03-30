@@ -16,7 +16,7 @@ const emit = defineEmits(['show'])
             {{ content }}
         </div>
         <div class="btn">
-            <button @click="emit('show', true)">Ver</button>
+            <button @click="emit('show', true)">Cadastrar</button>
         </div>
     </div>
 </template>
