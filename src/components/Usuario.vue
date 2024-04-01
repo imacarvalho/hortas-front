@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-    descricaoTarefa: String
+    descricaoUsuario: String
 })
 
 const emit = defineEmits(["editar", "excluir"])
@@ -9,7 +9,7 @@ const emit = defineEmits(["editar", "excluir"])
 <template>
     <div class="container">
     <br>    
-    <span>{{ descricaoTarefa }}</span>
+    <span>{{ descricaoUsuario }}</span>
     <br>
     <button @click="emit('editar')">Editar</button>
     <br>
@@ -31,7 +31,7 @@ height: 30%;
 padding:20;
 border: 1 px solid;
 border-radius: 10%;
-box-shadow: 1px 1px 1px 1px #000000;
+box-shadow: 1px 1px 1px 1px #ff0000;
 }
 .title{
     font-family: Arial, Helvetica, sans-serif;
