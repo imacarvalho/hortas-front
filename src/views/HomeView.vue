@@ -1,48 +1,48 @@
 <script setup>
-import Tarefa from '@/components/Tarefa.vue';
+import Usuario from '@/components/Usuario.vue';
 import { ref } from 'vue';
 
-const tarefa = ref()
-const listaTarefas = ref([])
+const user = ref()
+const listaUsuarios = ref([])
 const editando = ref(false)
 const indexEdit = ref()
 
 function cadastrar() {
-  if (!tarefa.value) {
+  if (!user.value) {
     return alert("Input inválido")
   }
   if (editando.value) {
-    listaTarefas.value.splice(indexEdit, 1, tarefa.value)
+    listaUsuarios.value.splice(indexEdit, 1, user.value)
   } else {
-    listaTarefas.value.push(tarefa.value)
+    listaUsuarios.value.push(user.value)
   }
   editando.value = false
 
-  tarefa.value = ""
+  user.value = ""
 }
 
 function editar(item, index) {
-  tarefa.value = item
+  user.value = item
   editando.value = true
   indexEdit.value = index
 }
 
 function excluir(index) {
-  listaTarefas.value.splice(index, 1)
+  listaUsuarios.value.splice(index, 1)
 }
 
 </script>
 
 <template>
   <div class="container">
-    <!-- <Card title="Tarefa" :content="content" @show="showCard = $event" /> -->
-    <label>Tarefa</label>
+    <!-- <Card title="Usuário" :content="content" @show="showCard = $event" /> -->
+    <label>Cadastro de Usuário</label>
     <div>
-      <input type="text" v-model="tarefa">
-      <button @click="cadastrar">Cadastrar</button>
+      <input type="text" v-model="usuário">
+      <button @click="cadastrar">Novo suário</button>
     </div>
-    <div v-for="(item, index) in listaTarefas" :key="item">
-      <Tarefa :descricao-tarefa="item" @editar="editar(item, index)" @excluir="excluir(index)" />
+    <div v-for="(item, index) in listaUsuarios" :key="item">
+      <User :descricao-Usuario="item" @editar="editar(item, index)" @excluir="excluir(index)" />
     </div>
   </div>
 </template>
