@@ -1,5 +1,5 @@
 <script setup>
-import Usuario from '@/components/Usuario.vue';
+import Usuarios from '@/components/Usuarios.vue';
 import { ref } from 'vue';
 
 const user = ref()
@@ -39,7 +39,7 @@ function excluir(index) {
     <label>Cadastro de Usuário</label>
     <div>
       <input type="text" v-model="usuário">
-      <button @click="cadastrar">Novo suário</button>
+      <button @click="cadastrar">Novo Usuário</button>
     </div>
     <div v-for="(item, index) in listaUsuarios" :key="item">
       <User :descricao-Usuario="item" @editar="editar(item, index)" @excluir="excluir(index)" />
